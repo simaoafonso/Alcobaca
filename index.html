@@ -588,35 +588,46 @@
   reveals.forEach(el => io.observe(el));
 
   // ── RSVP FORM ──
- document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+  // ── RSVP FORM ──
+  document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
     e.preventDefault();
-    this.style.display = 'none';
-    document.getElementById('rsvpSuccess').style.display = 'block';
-    document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
 
-  const data = {
-    nome:     document.getElementById('rsvp-nome').value,
-    email:    document.getElementById('rsvp-email').value,
-    presenca: document.getElementById('rsvp-presenca').value,
-    acomp:    document.getElementById('rsvp-acomp').value,
-  };
+    const btn = this.querySelector('button[type="submit"]');
+    btn.textContent = 'A enviar…';
+    btn.disabled = true;
 
-  const res = await fetch('https://formspree.io/f/xbdqrpaz', { 
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify(data),
-  });
+    const data = {
+      nome:     document.getElementById('rsvp-nome').value,
+      email:    document.getElementById('rsvp-email').value,
+      presenca: document.getElementById('rsvp-presenca').value,
+      acompanhantes: document.getElementById('rsvp-acomp').value || '0',
+    };
 
-  if (res.ok) {
-    this.style.display = 'none';
-    document.getElementById('rsvpSuccess').style.display = 'block';
-  } else {
-    alert('Ocorreu um erro. Por favor tenta novamente.');
-  }
-});
-  });
-});
+    try {
+      const res = await fetch('https://formspree.io/f/xbdqrpaz', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        this.style.display = 'none';
+        document.getElementById('rsvpSuccess').style.display = 'block';
+      } else {
+        const json = await res.json();
+        const msg = (json && json.errors) ? json.errors.map(e => e.message).join(', ') : 'Erro desconhecido.';
+        alert('Não foi possível enviar: ' + msg);
+        btn.textContent = 'Confirmar Presença';
+        btn.disabled = false;
+      }
+    } catch (err) {
+      alert('Erro de ligação. Verifica a tua internet e tenta novamente.');
+      btn.textContent = 'Confirmar Presença';
+      btn.disabled = false;
+    }
   });
 </script>
 </body>
