@@ -588,7 +588,7 @@
   reveals.forEach(el => io.observe(el));
 
   // ── RSVP FORM ──
-  document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+ document.getElementById('rsvpForm').addEventListener('submit', function(e) {
     e.preventDefault();
     this.style.display = 'none';
     document.getElementById('rsvpSuccess').style.display = 'block';
@@ -614,6 +614,8 @@
   } else {
     alert('Ocorreu um erro. Por favor tenta novamente.');
   }
+});
+  });
 });
   });
 </script>
