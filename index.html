@@ -220,29 +220,6 @@
     }
     .card-text strong { color: var(--dark); font-weight: 500; }
 
-    /* ── GALERIA ── */
-    #galeria { padding: 7rem 2rem; }
-    .galeria-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
-    .galeria-grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: auto;
-      gap: 12px; margin-top: 3.5rem;
-    }
-    .g-item { overflow: hidden; position: relative; }
-    .g-item img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-      transition: transform .6s ease, filter .4s;
-      filter: saturate(.9);
-    }
-    .g-item:hover img { transform: scale(1.06); filter: saturate(1.1); }
-    .g-item:nth-child(1) { grid-column: 1/6; grid-row: 1; aspect-ratio: 4/3; }
-    .g-item:nth-child(2) { grid-column: 6/9; grid-row: 1; aspect-ratio: 3/4; }
-    .g-item:nth-child(3) { grid-column: 9/13; grid-row: 1; aspect-ratio: 4/3; }
-    .g-item:nth-child(4) { grid-column: 1/5; grid-row: 2; aspect-ratio: 4/3; }
-    .g-item:nth-child(5) { grid-column: 5/9; grid-row: 2; aspect-ratio: 1; }
-    .g-item:nth-child(6) { grid-column: 9/13; grid-row: 2; aspect-ratio: 4/3; }
-
     /* ── CONFIRMAÇÃO ── */
     #confirmacao {
       background: var(--dark); color: #fff;
@@ -307,6 +284,93 @@
     }
     .local-link:hover { border-color: var(--gold); }
 
+	/* ── ALOJAMENTO ── */
+    #alojamento { background: var(--cream); }
+    .alojamento-inner {
+      max-width: 1080px; margin: 0 auto; text-align: center;
+    }
+    .alojamento-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem; margin-top: 4rem; text-align: left;
+    }
+    .hotel-card {
+      background: var(--warm);
+      position: relative; overflow: hidden;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .hotel-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(42,34,26,.12);
+    }
+    .hotel-card img {
+      width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;
+      filter: saturate(.9);
+      transition: filter .4s;
+    }
+    .hotel-card:hover img { filter: saturate(1.1); }
+    .hotel-body { padding: 1.8rem 2rem 2rem; }
+    .hotel-stars { color: var(--gold); font-size: .85rem; margin-bottom: .5rem; letter-spacing: .1em; }
+    .hotel-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 400; margin-bottom: .5rem;
+    }
+    .hotel-dist {
+      font-size: .7rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: .8rem;
+    }
+    .hotel-desc {
+      font-size: .85rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.2rem;
+    }
+    .hotel-link {
+      font-size: .7rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--dark); text-decoration: none; border-bottom: 1px solid var(--border);
+      padding-bottom: 2px; transition: color .2s, border-color .2s;
+    }
+    .hotel-link:hover { color: var(--gold); border-color: var(--gold); }
+    .alojamento-note {
+      margin-top: 3rem; font-size: .85rem; color: var(--muted);
+      font-style: italic; max-width: 560px; margin-left: auto; margin-right: auto;
+    }
+
+    /* ── CONTACTOS ── */
+    #contactos {
+      background: var(--dark); color: #fff;
+      text-align: center;
+    }
+    #contactos .section-label { color: var(--gold-lt); }
+    #contactos .section-title { color: #fff; }
+    .contactos-grid {
+      display: flex; justify-content: center; gap: 5rem; flex-wrap: wrap;
+      margin-top: 4rem;
+    }
+    .contacto-pessoa { text-align: center; }
+    .contacto-avatar {
+      width: 110px; height: 110px; border-radius: 50%;
+      object-fit: cover; display: block; margin: 0 auto 1.4rem;
+      border: 2px solid var(--border);
+      filter: grayscale(.2);
+    }
+    .contacto-role {
+      font-size: .62rem; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: .4rem;
+    }
+    .contacto-nome {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 300; color: #fff;
+      margin-bottom: 1.2rem;
+    }
+    .contacto-links { display: flex; flex-direction: column; gap: .6rem; }
+    .contacto-link {
+      display: flex; align-items: center; justify-content: center; gap: .6rem;
+      font-size: .82rem; color: rgba(255,255,255,.55);
+      text-decoration: none; transition: color .2s;
+    }
+    .contacto-link:hover { color: var(--gold-lt); }
+    .contacto-link svg { width: 14px; height: 14px; opacity: .6; }
+    .contacto-sep {
+      width: 1px; background: rgba(255,255,255,.1);
+      align-self: stretch;
+    }
     /* ── FOOTER ── */
     footer {
       text-align: center; padding: 4rem 2rem;
@@ -345,6 +409,8 @@
       #historia { grid-template-columns: 1fr; gap: 3rem; }
       .historia-img-wrap { max-width: 380px; margin: 0 auto; }
       .locais-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .contactos-grid { gap: 3rem; }
+      .contacto-sep { display: none; }
       .galeria-grid {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
@@ -365,8 +431,9 @@
   <ul class="nav-links">
     <li><a href="#historia">A Nossa História</a></li>
     <li><a href="#detalhes">Detalhes</a></li>
-    <li><a href="#galeria">Galeria</a></li>
     <li><a href="#locais">Locais</a></li>
+    <li><a href="#alojamento">Alojamento</a></li>
+    <li><a href="#contactos">Contactos</a></li>
     <li><a href="#confirmacao">Confirmação</a></li>
   </ul>
 </nav>
@@ -462,27 +529,6 @@
   </div>
 </section>
 
-<!-- GALERIA -->
-<section id="galeria">
-  <div class="galeria-inner">
-    <p class="section-label reveal">Galeria</p>
-    <h2 class="section-title reveal">Os nossos momentos</h2>
-    <div class="section-line reveal"></div>
-    <p class="prose reveal" style="margin: 0 auto 0; color:var(--muted);">
-      Substitui estas fotografias pelas do vosso casal — noivado, momentos especiais ou o próprio dia.
-    </p>
-    <div class="galeria-grid">
-      <!-- TROCAR todas as imagens por fotos reais -->
-      <div class="g-item reveal"><img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800&q=80" alt="Foto 1"/></div>
-      <div class="g-item reveal"><img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&q=80" alt="Foto 2"/></div>
-      <div class="g-item reveal"><img src="https://images.unsplash.com/photo-1529636798458-92182e662485?w=800&q=80" alt="Foto 3"/></div>
-      <div class="g-item reveal"><img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=800&q=80" alt="Foto 4"/></div>
-      <div class="g-item reveal"><img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&q=80" alt="Foto 5"/></div>
-      <div class="g-item reveal"><img src="https://images.unsplash.com/photo-1502635385003-ee1e6a1a742d?w=800&q=80" alt="Foto 6"/></div>
-    </div>
-  </div>
-</section>
-
 <!-- LOCAIS -->
 <section id="locais">
   <div class="locais-inner">
@@ -510,7 +556,123 @@
       <!-- TROCAR por foto do local -->
       <img src="https://cdn0.casamentos.pt/vendor/0406/3_2/960/jpg/quinta-da-cerca-do-colegio-aereo_6_120406-166326185831404.webp?w=900&q=80" alt="Quinta da Cerca do Colégio" class="local-img"/>
     </div>
+ </div>
+</section>
+
+<!-- ALOJAMENTO -->
+<section id="alojamento">
+  <div class="alojamento-inner">
+    <p class="section-label reveal">Onde ficar</p>
+    <h2 class="section-title reveal">Alojamento na zona de Alcobaça</h2>
+    <div class="section-line reveal"></div>
+    <p class="prose reveal" style="margin: 0 auto;">
+      Para quem vem de longe, sugerimos alguns alojamentos perto do local da cerimónia. 
+      Recomendamos reservar com antecedência, especialmente para a época de outono.
+    </p>
+    <div class="alojamento-grid">
+
+      <div class="hotel-card reveal">
+        <!-- TROCAR por foto real do hotel -->
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80" alt="Hotel Santa Maria"/>
+        <div class="hotel-body">
+          <div class="hotel-stars">★★★★</div>
+          <h3 class="hotel-name">Hotel Santa Maria</h3>
+          <p class="hotel-dist">2 min a pé do Mosteiro</p>
+          <p class="hotel-desc">Situado no coração de Alcobaça, junto ao Mosteiro. Quartos confortáveis com vistas para o centro histórico da vila.</p>
+          <a href="https://www.google.com/search?q=Hotel+Santa+Maria+Alcobaça" target="_blank" class="hotel-link">Ver hotel →</a>
+        </div>
+      </div>
+
+      <div class="hotel-card reveal">
+        <!-- TROCAR por foto real do hotel -->
+        <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80" alt="Challet Fonte Nova"/>
+        <div class="hotel-body">
+          <div class="hotel-stars">★★★★</div>
+          <h3 class="hotel-name">Challet Fonte Nova</h3>
+          <p class="hotel-dist">5 min a pé do Mosteiro</p>
+          <p class="hotel-desc">Residência de charme numa villa romântica do século XIX. Um retiro tranquilo com jardins e uma atmosfera única e acolhedora.</p>
+          <a href="https://www.google.com/search?q=Challet+Fonte+Nova+Alcobaça" target="_blank" class="hotel-link">Ver hotel →</a>
+        </div>
+      </div>
+
+      <div class="hotel-card reveal">
+        <!-- TROCAR por foto real do hotel -->
+        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80" alt="Hotel Termas da Piedade"/>
+        <div class="hotel-body">
+          <div class="hotel-stars">★★★</div>
+          <h3 class="hotel-name">Hotel Termas da Piedade</h3>
+          <p class="hotel-dist">10 min de carro</p>
+          <p class="hotel-desc">Hotel tranquilo numa zona verde a pouca distância de Alcobaça. Ideal para quem procura sossego e natureza após a festa.</p>
+          <a href="https://www.google.com/search?q=Hotel+Termas+da+Piedade+Alcobaça" target="_blank" class="hotel-link">Ver hotel →</a>
+        </div>
+      </div>
+
+      <div class="hotel-card reveal">
+        <!-- TROCAR por foto real do hotel -->
+        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80" alt="Casa da Padeira"/>
+        <div class="hotel-body">
+          <div class="hotel-stars">★★★</div>
+          <h3 class="hotel-name">Casa da Padeira</h3>
+          <p class="hotel-dist">3 min a pé do Mosteiro</p>
+          <p class="hotel-desc">Alojamento local com um toque tipicamente português, localizado mesmo no centro histórico de Alcobaça. Simples, simpático e bem situado.</p>
+          <a href="https://www.google.com/search?q=Casa+da+Padeira+Alcobaça" target="_blank" class="hotel-link">Ver alojamento →</a>
+        </div>
+      </div>
+
+    </div>
+    <p class="alojamento-note reveal">
+      Estes são sugestões de alojamento — não existe qualquer acordo especial com os estabelecimentos. 
+      Para outras opções, consulta também o Booking.com ou Airbnb para a zona de Alcobaça e Caldas da Rainha.
+    </p>
   </div>
+</section>
+
+<!-- CONTACTOS -->
+<section id="contactos">
+  <p class="section-label reveal">Fala connosco</p>
+  <h2 class="section-title reveal">Contactos dos noivos</h2>
+  <div class="section-line reveal"></div>
+  <p class="prose reveal" style="margin: 0 auto; color: rgba(255,255,255,.5);">
+    Para qualquer dúvida, não hesites em contactar-nos diretamente. Estamos sempre disponíveis!
+  </p>
+  <div class="contactos-grid">
+
+    <div class="contacto-pessoa reveal">
+      <!-- TROCAR por foto da noiva -->
+      <img src="https://raw.githubusercontent.com/simaoafonso/Alcobaca/refs/heads/main/Fotos/IMG_20211003_124405_Bokeh.jpg?w=300&q=80" alt="Miriam" class="contacto-avatar"/>
+      <p class="contacto-role">A Noiva</p>
+      <h3 class="contacto-nome">Miriam</h3>
+      <div class="contacto-links">
+        <a href="tel:+351910000001" class="contacto-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.1 2.82 2 2 0 012.11 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          +351 918 449 649 <!-- TROCAR pelo nº real -->
+        </a>
+        <a href="mailto:miriam@email.com" class="contacto-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          miriamrbvicente@gmail.com <!-- TROCAR pelo email real -->
+        </a>
+      </div>
+    </div>
+
+    <div class="contacto-sep reveal"></div>
+
+    <div class="contacto-pessoa reveal">
+      <!-- TROCAR por foto do noivo -->
+      <img src="https://raw.githubusercontent.com/simaoafonso/Alcobaca/refs/heads/main/Fotos/IMG_20240407_225805_Bokeh.jpg?w=300&q=80" alt="[Nome]" class="contacto-avatar"/>
+      <p class="contacto-role">O Noivo</p>
+      <h3 class="contacto-nome">Simão</h3>
+      <div class="contacto-links">
+        <a href="tel:+351910000002" class="contacto-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.1 2.82 2 2 0 012.11 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          +351 918 664 011 <!-- TROCAR pelo nº real -->
+        </a>
+        <a href="mailto:noivo@email.com" class="contacto-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          simaobafonso@gmail.com <!-- TROCAR pelo email real -->
+        </a>
+      </div>
+    </div>
+    </div>
 </section>
 
 <!-- CONFIRMAÇÃO -->
