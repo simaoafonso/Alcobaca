@@ -691,7 +691,7 @@
       <option value="sim">✓ Confirmo presença com prazer</option>
       <option value="nao">✗ Infelizmente não poderei comparecer</option>
     </select>
-    <input type="number" placeholder="Número de acompanhantes (se aplicável)" min="0" max="5" id="rsvp-acomp"/>
+    <input type="text" placeholder="Tens alguma restrição alimentar?" required id="rsvp-restricoes"/>
     <button type="submit" class="btn-gold">Confirmar Presença</button>
   </form>
   <p class="rsvp-success" id="rsvpSuccess">
@@ -750,45 +750,25 @@
   reveals.forEach(el => io.observe(el));
 
   // ── RSVP FORM ──
-  document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
+  document.getElementById('rsvpForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const btn = this.querySelector('button[type="submit"]');
-    btn.textContent = 'A enviar…';
-    btn.disabled = true;
+    const nome     = document.getElementById('rsvp-nome').value;
+    const email    = document.getElementById('rsvp-email').value;
+    const presenca = document.getElementById('rsvp-presenca').value;
+    const restricoes    = document.getElementById('rsvp-restricoes').value || '0';
 
-    const data = {
-      nome:     document.getElementById('rsvp-nome').value,
-      email:    document.getElementById('rsvp-email').value,
-      presenca: document.getElementById('rsvp-presenca').value,
-      acompanhantes: document.getElementById('rsvp-acomp').value || '0',
-    };
+    const base = 'https://docs.google.com/forms/d/e/1FAIpQLSeAIXU3AAkzAmRbY6B_25w3lR5SMPllR1sksgvmCGLpO8lVjg/viewform?usp=pp_url';
+    const url  = base
+      + '&entry.940829355='  + encodeURIComponent(nome)
+      + '&entry.1059422397=' + encodeURIComponent(email)
+      + '&entry.1304514032=' + encodeURIComponent(presenca)
+      + '&entry.1926464706=' + encodeURIComponent(restricoes);
 
-    try {
-      const res = await fetch('https://formspree.io/f/xbdqrpaz', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(data),
-      });
+    window.open(url, '_blank');
 
-      if (res.ok) {
-        this.style.display = 'none';
-        document.getElementById('rsvpSuccess').style.display = 'block';
-      } else {
-        const json = await res.json();
-        const msg = (json && json.errors) ? json.errors.map(e => e.message).join(', ') : 'Erro desconhecido.';
-        alert('Não foi possível enviar: ' + msg);
-        btn.textContent = 'Confirmar Presença';
-        btn.disabled = false;
-      }
-    } catch (err) {
-      alert('Erro de ligação. Verifica a tua internet e tenta novamente.');
-      btn.textContent = 'Confirmar Presença';
-      btn.disabled = false;
-    }
+    this.style.display = 'none';
+    document.getElementById('rsvpSuccess').style.display = 'block';
   });
 </script>
 </body>
