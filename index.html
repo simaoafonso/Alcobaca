@@ -346,9 +346,14 @@
     .contacto-pessoa { text-align: center; }
     .contacto-avatar {
       width: 110px; height: 110px; border-radius: 50%;
-      object-fit: cover; display: block; margin: 0 auto 1.4rem;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.4rem;
       border: 2px solid var(--border);
-      filter: grayscale(.2);
+      background: rgba(181,147,90,.1);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem; font-weight: 300; font-style: italic;
+      color: var(--gold-lt);
+      letter-spacing: .05em;
     }
     .contacto-role {
       font-size: .62rem; letter-spacing: .28em; text-transform: uppercase;
@@ -474,22 +479,18 @@
   <div id="historia">
     <div class="historia-img-wrap reveal">
       <!-- TROCAR por foto do casal -->
-      <img src="https://raw.githubusercontent.com/simaoafonso/Alcobaca/refs/heads/main/Fotos/IMG_20211003_131553.jpg?w=800&q=80" alt="Foto do casal" />
+      <img src="https://raw.githubusercontent.com/simaoafonso/Alcobaca/refs/heads/main/Fotos/IMG_20211003_131553.jpeg?w=800&q=80" alt="Foto do casal" />
     </div>
     <div class="reveal">
       <p class="section-label">A nossa história</p>
       <h2 class="section-title">Uma vida a dois começa aqui</h2>
       <div class="section-line left"></div>
       <p class="prose">
-        Escreve aqui a história do vosso casal — como se conheceram, o primeiro encontro, 
-        os momentos especiais que vos trouxeram até este dia. Este texto é um placeholder 
-        para substituíres com as vossas palavras.
+        Passados 12 anos de uma noite fatídica de Carnaval, aqui estamos nós, prontos para festejar o melhor dia das nossas vidas junto das pessoas que mais amamos.
       </p>
       <br/>
       <p class="prose">
-        Depois de anos de cumplicidade, aventuras partilhadas e amor crescente, chegou o momento 
-        de celebrar com as pessoas que mais nos importam. Estamos ansiosos por partilhar este 
-        dia único convosco.
+        É com muita felicidade e com muito amor que vos convidamos e vos abraçamos para escrevermos mais um capítulo lindo da nossa história de amor!
       </p>
     </div>
   </div>
@@ -638,18 +639,16 @@
   <div class="contactos-grid">
 
     <div class="contacto-pessoa reveal">
-      <!-- TROCAR por foto da noiva -->
-      <img src="https://raw.githubusercontent.com/simaoafonso/Alcobaca/refs/heads/main/Fotos/IMG_20211003_124405_Bokeh.jpg?w=300&q=80" alt="Miriam" class="contacto-avatar"/>
       <p class="contacto-role">A Noiva</p>
       <h3 class="contacto-nome">Miriam</h3>
       <div class="contacto-links">
-        <a href="tel:+351910000001" class="contacto-link">
+        <a href="tel:+351918449649" class="contacto-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.1 2.82 2 2 0 012.11 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          +351 918 449 649 <!-- TROCAR pelo nº real -->
+          +351 918 449 649
         </a>
-        <a href="mailto:miriam@email.com" class="contacto-link">
+        <a href="mailto:miriamrbvicente@gmail.com" class="contacto-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          miriamrbvicente@gmail.com <!-- TROCAR pelo email real -->
+          miriamrbvicente@gmail.com
         </a>
       </div>
     </div>
@@ -657,22 +656,21 @@
     <div class="contacto-sep reveal"></div>
 
     <div class="contacto-pessoa reveal">
-      <!-- TROCAR por foto do noivo -->
-      <img src="https://raw.githubusercontent.com/simaoafonso/Alcobaca/refs/heads/main/Fotos/IMG_20240407_225805_Bokeh.jpg?w=300&q=80" alt="[Nome]" class="contacto-avatar"/>
       <p class="contacto-role">O Noivo</p>
       <h3 class="contacto-nome">Simão</h3>
       <div class="contacto-links">
-        <a href="tel:+351910000002" class="contacto-link">
+        <a href="tel:+351918664011" class="contacto-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.1 2.82 2 2 0 012.11 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          +351 918 664 011 <!-- TROCAR pelo nº real -->
+          +351 918 664 011
         </a>
-        <a href="mailto:noivo@email.com" class="contacto-link">
+        <a href="mailto:simaobafonso@gmail.com" class="contacto-link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          simaobafonso@gmail.com <!-- TROCAR pelo email real -->
+          simaobafonso@gmail.com
         </a>
       </div>
     </div>
-    </div>
+
+  </div>
 </section>
 
 <!-- CONFIRMAÇÃO -->
@@ -680,7 +678,7 @@
   <p class="section-label reveal">RSVP</p>
   <h2 class="section-title reveal">Confirmar presença</h2>
   <p class="prose reveal">
-    Por favor confirma a tua presença até ao dia <strong style="color:#fff;">1 de Setembro de 2026</strong>.<br/>
+    Por favor confirma a tua presença até ao dia <strong style="color:#fff;">6 de Setembro de 2026</strong>.<br/>
     A vossa confirmação é muito importante para nós.
   </p>
   <form class="rsvp-form reveal" id="rsvpForm">
